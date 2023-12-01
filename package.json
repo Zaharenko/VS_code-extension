@@ -1,0 +1,38 @@
+{
+  "name": "commit-msg-hook-creator",
+  "displayName": "Commit Msg Hook Creator",
+  "description": "Creates a commit-msg Git hook",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.createCommitMsgHook"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.createCommitMsgHook",
+        "title": "Create commit-msg Hook"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.1",
+    "@types/mocha": "^7.0.2",
+    "typescript": "^4.0.3",
+    "vscode": "^1.1.37",
+    "mocha": "^8.2.1"
+  }
+}
