@@ -1,6 +1,7 @@
 # Commit Message Hook Generator for VS Code
 
 This VS Code extension allows you to easily generate a pre-commit hook for validating commit messages based on specified patterns.
+![Screenshot of my extension](./images/screenshot.png)
 
 ## Features
 
