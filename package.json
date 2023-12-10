@@ -3,15 +3,21 @@
   "displayName": "Commit Msg Hook Creator",
   "description": "Creates a commit-msg Git hook",
   "version": "0.0.1",
+  "publisher": "antonzakharenka",
   "engines": {
     "vscode": "^1.50.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "SCM Providers"
   ],
   "activationEvents": [
     "onCommand:extension.createCommitMsgHook"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zaharenko/VS_code-extension"
+  },
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
