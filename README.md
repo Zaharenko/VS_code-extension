@@ -1,71 +1,41 @@
-# github-comment-guard README
+# Commit Message Hook Generator for VS Code
 
-This is the README for your extension "github-comment-guard". After writing up a brief description, we recommend including the following sections.
+This VS Code extension allows you to easily generate a pre-commit hook for validating commit messages based on specified patterns.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Interactive command to set up commit message patterns.
+- Automatically creates a pre-commit hook.
+- Validates commit messages against required and task patterns.
+- Provides an example of a valid commit message for reference.
 
-For example if there is an image subfolder under your extension project workspace:
+## How to Use
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open a VS Code workspace.
+2. Navigate to the file where you want to set up the commit message hook.
+3. Run the "Create Commit Msg Hook" command using the VS Code command palette.
+4. Follow the prompts to enter the required pattern, task pattern, and an example of a valid commit message.
+5. The extension will update the file with the specified patterns and create the necessary hooks.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Node.js version 10.22.0 or higher.
+- Husky should be installed in the project. If not, the extension will guide you through the installation process.
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Install the extension from the Visual Studio Code marketplace.
+2. Open your VS Code workspace.
+3. Run the "Create Commit Msg Hook" command to set up the hook.
 
-For example:
+## Configuration
 
-This extension contributes the following settings:
+- The extension supports customization of required patterns, task patterns, and example commit messages.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Issues and Feedback
 
-## Known Issues
+If you encounter any issues or have feedback, please create an issue on the [GitHub repository](link-to-your-repository).
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Contribution
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
