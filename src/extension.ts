@@ -40,15 +40,12 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       if (!requiredPattern || !taskPattern || !messageExample) {
-        // Пользователь не ввел одно из значений
         return;
       }
 
-      // Получить всё содержимое файла
       const document = editor.document;
       let text = document.getText();
 
-      // Заменить старые значения на новые
       text = text.replace(
         /requiredPattern=".*"/,
         `requiredPattern="${requiredPattern}"`
@@ -63,7 +60,6 @@ export function activate(context: vscode.ExtensionContext) {
         `echo "\\\${GREEN}${messageExample}\\\${NC}"`
       );
 
-      // Записать обновленный текст обратно в файл
       const edit = new vscode.WorkspaceEdit();
       edit.replace(
         document.uri,
@@ -84,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
             return;
           }
 
-          const version = stdout.trim().slice(1); // remove the 'v' prefix
+          const version = stdout.trim().slice(1);
           if (version < "10.22.0") {
             vscode.window.showErrorMessage(
               "Your Node.js version is too low for Husky. Please upgrade Node.js to v10.22.0 or higher."
@@ -119,10 +115,10 @@ export function activate(context: vscode.ExtensionContext) {
                             );
                           } else {
                             vscode.window.showInformationMessage(
-                              "npm install ran successfully"
+                              "NPM install ran successfully"
                             );
                             cp.exec(
-                              "npx husky install",
+                              "NPX husky install",
                               { cwd: rootPath },
                               (err) => {
                                 if (err) {
@@ -148,7 +144,7 @@ export function activate(context: vscode.ExtensionContext) {
                                       vscode.window.showInformationMessage(
                                         "pre-commit hook created successfully"
                                       );
-                                      // Создание хука commit-msg
+
                                       const commitMsgPath = path.join(
                                         hookDir,
                                         "commit-msg"
@@ -198,7 +194,7 @@ export function activate(context: vscode.ExtensionContext) {
                                             );
                                           } else {
                                             vscode.window.showInformationMessage(
-                                              "commit-msg hook created successfully"
+                                              "Commit-msg hook created successfully"
                                             );
                                           }
                                         }
@@ -245,12 +241,10 @@ export function activate(context: vscode.ExtensionContext) {
                               return;
                             }
 
-                            // Создать раздел "scripts", если он еще не существует
                             if (!packageJson.scripts) {
                               packageJson.scripts = {};
                             }
 
-                            // Добавить команду "prepare", если ее еще нет
                             if (!packageJson.scripts["prepare"]) {
                               packageJson.scripts["prepare"] = "husky install";
 
@@ -278,7 +272,6 @@ export function activate(context: vscode.ExtensionContext) {
 
           try {
             require.resolve("husky");
-            // Husky is installed, continue with your code
           } catch (err) {
             vscode.window
               .showErrorMessage(
