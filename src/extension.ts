@@ -130,6 +130,9 @@ export function activate(context: vscode.ExtensionContext) {
                                     "Husky hooks installed successfully"
                                   );
                                   const hookDir = path.join(rootPath, ".husky");
+                                  if (!fs.existsSync(hookDir)) {
+                                    fs.mkdirSync(hookDir, { recursive: true });
+                                  }
                                   const preCommitPath = path.join(
                                     hookDir,
                                     "pre-commit"
@@ -145,6 +148,11 @@ export function activate(context: vscode.ExtensionContext) {
                                         "pre-commit hook created successfully"
                                       );
 
+                                      if (!fs.existsSync(hookDir)) {
+                                        fs.mkdirSync(hookDir, {
+                                          recursive: true,
+                                        });
+                                      }
                                       const commitMsgPath = path.join(
                                         hookDir,
                                         "commit-msg"
@@ -269,42 +277,6 @@ export function activate(context: vscode.ExtensionContext) {
               return;
             }
           }
-
-          try {
-            require.resolve("husky");
-          } catch (err) {
-            vscode.window
-              .showErrorMessage(
-                "Husky is not installed in this project. Please install it before creating the hook.",
-                "Install Husky"
-              )
-              .then((selection) => {
-                if (selection === "Install Husky") {
-                  cp.exec("npm install husky", { cwd: rootPath }, (err) => {
-                    if (err) {
-                      vscode.window.showErrorMessage(
-                        `Failed to install Husky: ${err.message}`
-                      );
-                    } else {
-                      vscode.window.showInformationMessage(
-                        "Husky installed successfully"
-                      );
-                    }
-                  });
-                }
-              });
-            return;
-          }
-
-          const hookDir = path.join(rootPath, ".husky");
-          fs.mkdir(hookDir, { recursive: true }, (err) => {
-            if (err) {
-              vscode.window.showErrorMessage(
-                `Failed to create directory: ${err.message}`
-              );
-              return;
-            }
-          });
         });
       } else {
         vscode.window.showErrorMessage("No workspace open");

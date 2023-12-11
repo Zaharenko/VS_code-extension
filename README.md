@@ -1,12 +1,12 @@
 # Commit Message Hook Generator for VS Code
+![Screenshot of my extension](./images/screenshot.png)
 
 This VS Code extension allows you to easily generate a pre-commit hook for validating commit messages based on specified patterns.
-![Screenshot of my extension](./images/screenshot.png)
 
 ## Features
 
 - Interactive command to set up commit message patterns.
-- Automatically creates a pre-commit hook.
+- Automatically creates a pre-commit and msg-commit hooks.
 - Validates commit messages against required and task patterns.
 - Provides an example of a valid commit message for reference.
 

@@ -2,7 +2,7 @@
   "name": "commit-msg-hook-creator",
   "displayName": "Commit Msg Hook Creator",
   "description": "Creates a commit-msg Git hook",
-  "version": "0.0.1",
+  "version": "0.1.3",
   "publisher": "antonzakharenka",
   "engines": {
     "vscode": "^1.50.0"
@@ -11,6 +11,11 @@
     "Other",
     "SCM Providers"
   ],
+  "icon": "images/screenshot.png",
+  "galleryBanner": {
+    "color": "#5c2d91",
+    "theme": "dark"
+  },
   "activationEvents": [
     "onCommand:extension.createCommitMsgHook"
   ],
