@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import * as fs from "fs";
 import * as path from "path";
 import * as cp from "child_process";
+import * as semver from "semver";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -81,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
           }
 
           const version = stdout.trim().slice(1);
-          if (version < "10.22.0") {
+          if (semver.lt(version, "10.22.0")) {
             vscode.window.showErrorMessage(
               "Your Node.js version is too low for Husky. Please upgrade Node.js to v10.22.0 or higher."
             );
@@ -98,7 +99,7 @@ export function activate(context: vscode.ExtensionContext) {
                 )
                 .then((selection) => {
                   if (selection === "Install Husky") {
-                    cp.exec("npm install husky", { cwd: rootPath }, (err) => {
+                    cp.exec("npx npm install husky", { cwd: rootPath }, (err) => {
                       if (err) {
                         vscode.window.showErrorMessage(
                           `Failed to install Husky: ${err.message}`
