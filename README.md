@@ -1,37 +1,57 @@
 # Commit Message Hook Generator for VS Code
-![Screenshot of my extension](./images/screenshot.png)
 
-This VS Code extension allows you to easily generate a pre-commit hook for validating commit messages based on specified patterns.
+## Overview
+
+This VS Code extension simplifies the process of creating a pre-commit interceptor to validate commit-msg based on specified patterns.
 
 ## Features
 
-- Interactive command to set up commit message patterns.
-- Automatically creates a pre-commit and msg-commit hooks.
-- Validates commit messages against required and task patterns.
+### Interactive Configuration:
+
+- Customize commit message templates interactively.
+- Automatically generates pre-commit and msg-commit hooks.
+
+### Ready-to-Use Configuration:
+
+- The msg-commit interceptor is pre-configured and ready for immediate use.
+- The pre-commit interceptor is created empty, allowing for personalized customization based on specific needs and frameworks.
+
+### Message Validation:
+
+- Checks commit messages against required templates and task templates.
 - Provides an example of a valid commit message for reference.
 
-## How to Use
+## Usage
 
-1. Open a VS Code workspace.
-2. Navigate to the file where you want to set up the commit message hook.
-3. Run the "Create Commit Msg Hook" command using the VS Code command palette.
-4. Follow the prompts to enter the required pattern, task pattern, and an example of a valid commit message.
-5. The extension will update the file with the specified patterns and create the necessary hooks.
+1. **Open Your Workspace:**
+   - Launch your VS Code workspace.
+2. **Configuration Setup:**
+   - Navigate to the desired file for commit message configuration.
+   - Run the "Create Message Commit" command using the VS Code Command Palette.
+3. **Interactive Setup:**
+   - Follow the prompts to input required templates, task templates, and an example of a valid commit message.
+4. **Automatic Configuration:**
+   - The extension updates the file with specified templates and creates necessary hooks.
+5. **Execution and Permissions:**
+   - Make the pre-commit hook executable using the command: `chmod +x .husky/pre-commit`.
 
 ## Requirements
 
 - Node.js version 10.22.0 or higher.
-- Husky should be installed in the project. If not, the extension will guide you through the installation process.
+- Husky must be installed in the project; the extension guides you through the installation process if not present.
 
 ## Installation
 
-1. Install the extension from the Visual Studio Code marketplace.
-2. Open your VS Code workspace.
-3. Run the "Create Commit Msg Hook" command to set up the hook.
+1. **Install from Visual Studio Code Store:**
+   - Install the extension from the Visual Studio Code store.
+2. **Open Your Workspace:**
+   - Launch your VS Code workspace.
+3. **Configuration Setup:**
+   - Run the "Create Commit Msg Hook" command to configure the hook.
 
-## Configuration
+## Configuration Options
 
-- The extension supports customization of required patterns, task patterns, and example commit messages.
+The extension allows customization of required templates, task templates, and sample commit messages.
 
 ## Issues and Feedback
 
